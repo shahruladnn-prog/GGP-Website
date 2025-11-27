@@ -48,7 +48,7 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col font-sans">
-      <Navbar activeSection={activeSection} onNavigate={handleNavigate} />
+      <NavBar activeSection={activeSection} onNavigate={handleNavigate} />
       
       <main className="flex-grow">
         {activeSection === AppSection.RATES ? (
