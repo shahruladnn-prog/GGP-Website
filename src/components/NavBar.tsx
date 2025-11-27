@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Tent, Globe } from 'lucide-react';
 import { AppSection } from '../types';
@@ -15,7 +14,6 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
   const [scrolled, setScrolled] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const { trans, setLanguage, language } = useLanguage();
-
   const BOOKING_URL = 'https://live.ipms247.com/booking/book-rooms-gopengglampingpark';
 
   useEffect(() => {
@@ -58,7 +56,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
           >
             {!logoError ? (
               <img 
-                src="https://gopengglampingpark.com/wp-content/uploads/2023/08/GGP-LOGO-01-1-300x300.png" 
+                src="/images/logo.png" 
                 alt="Gopeng Glamping Park" 
                 className={`w-auto transition-all duration-300 ${scrolled ? 'h-16 md:h-20' : 'h-24 md:h-28'} group-hover:scale-105 drop-shadow-lg`}
                 onError={() => setLogoError(true)}

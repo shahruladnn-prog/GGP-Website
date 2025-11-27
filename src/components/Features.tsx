@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import { Accommodation, AppSection } from '../types';
 import { Users, ChevronRight, ChevronLeft, X, ZoomIn } from 'lucide-react';
@@ -14,8 +13,6 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
   const [activeImageIndices, setActiveImageIndices] = useState<{[key: string]: number}>({
     '1': 0, '2': 0, '3': 0
   });
-  
-  // Update state to store both tent ID and image index for lightbox
   const [lightboxImage, setLightboxImage] = useState<{tentId: string, index: number} | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -28,9 +25,9 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
       capacity: '2 Pax',
       features: ['1 Queen Bed', 'Air Conditioning', 'Fan Cooling', 'Air Purifier', 'Plug Points', 'Table & Chairs'],
       images: [
-        'https://gopengglampingpark.com/wp-content/uploads/2025/01/GGPDOUBLE1.jpg',
-        'https://gopengglampingpark.com/wp-content/uploads/2025/01/GGPDOUBLE4.jpg',
-        'https://gopengglampingpark.com/wp-content/uploads/2025/01/GGPDOUBLE5-1.jpg'
+        '/images/tent-double-1.jpg',
+        '/images/tent-double-2.jpg',
+        '/images/tent-double-3.jpg'
       ]
     },
     {
@@ -41,9 +38,9 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
       capacity: '4 Pax',
       features: ['2 Queen Beds', 'Air Conditioning', 'Fan Cooling', 'Air Purifier', 'Plug Points', 'Table & Chairs'],
       images: [
-        'https://gopengglampingpark.com/wp-content/uploads/2025/01/IMG_3874.jpg',
-        'https://gopengglampingpark.com/wp-content/uploads/2025/01/IMG_0005.jpg',
-        'https://gopengglampingpark.com/wp-content/uploads/2025/01/IMG_0013.jpg'
+        '/images/tent-quad-1.jpg',
+        '/images/tent-quad-2.jpg',
+        '/images/tent-quad-3.jpg'
       ]
     },
     {
@@ -54,14 +51,13 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
       capacity: '8 Pax',
       features: ['4 Queen Beds', 'Air Conditioning', 'Fan Cooling', 'Air Purifier', 'Plug Points', 'Large Common Area'],
       images: [
-        'https://gopengglampingpark.com/wp-content/uploads/2025/01/GGPDELUXE4.jpg',
-        'https://gopengglampingpark.com/wp-content/uploads/2025/01/GGPDELUXE1.jpg',
-        'https://gopengglampingpark.com/wp-content/uploads/2025/01/GGPDELUXE3.jpg'
+        '/images/tent-deluxe-1.jpg',
+        '/images/tent-deluxe-2.jpg',
+        '/images/tent-deluxe-3.jpg'
       ]
     }
   ];
 
-  // Card Thumbnail Navigation
   const nextImage = (id: string, max: number, e: React.MouseEvent) => {
     e.stopPropagation();
     setActiveImageIndices(prev => ({
@@ -78,21 +74,16 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
     }));
   };
 
-  // Lightbox Navigation (Cross-Tent)
   const handleLightboxNext = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     if (!lightboxImage) return;
-
     const currentTentIndex = accommodations.findIndex(acc => acc.id === lightboxImage.tentId);
     if (currentTentIndex === -1) return;
 
     const currentTent = accommodations[currentTentIndex];
-
-    // If there is another image in the current tent
     if (lightboxImage.index < currentTent.images.length - 1) {
       setLightboxImage({ tentId: lightboxImage.tentId, index: lightboxImage.index + 1 });
     } else {
-      // Move to next tent
       const nextTentIndex = (currentTentIndex + 1) % accommodations.length;
       setLightboxImage({ tentId: accommodations[nextTentIndex].id, index: 0 });
     }
@@ -104,12 +95,9 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
 
     const currentTentIndex = accommodations.findIndex(acc => acc.id === lightboxImage.tentId);
     if (currentTentIndex === -1) return;
-
-    // If there is a previous image in the current tent
     if (lightboxImage.index > 0) {
        setLightboxImage({ tentId: lightboxImage.tentId, index: lightboxImage.index - 1 });
     } else {
-       // Move to previous tent (and its last image)
        const prevTentIndex = (currentTentIndex - 1 + accommodations.length) % accommodations.length;
        const prevTent = accommodations[prevTentIndex];
        setLightboxImage({ tentId: prevTent.id, index: prevTent.images.length - 1 });
@@ -150,7 +138,7 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
            <div className="flex flex-col items-center group">
               <div className="h-32 w-full flex items-center justify-center mb-4 px-2">
                  <img 
-                    src="https://gopengglampingpark.com/wp-content/uploads/2024/06/ADV-Tourism-01.png" 
+                    src="/images/award-iso21101.png" 
                     alt="ISO 21101" 
                     className="max-h-full max-w-[140px] object-contain transition-transform group-hover:scale-105 filter drop-shadow-sm"
                  />
@@ -164,7 +152,7 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
            <div className="flex flex-col items-center group">
               <div className="h-32 w-full flex items-center justify-center mb-4 px-2">
                 <img 
-                    src="https://gopengglampingpark.com/wp-content/uploads/2025/01/iso9001-01-1024x1024.png" 
+                    src="/images/award-iso9001.png" 
                     alt="ISO 9001" 
                     className="max-h-full max-w-[140px] object-contain transition-transform group-hover:scale-105 filter drop-shadow-sm"
                  />
@@ -178,7 +166,7 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
            <div className="flex flex-col items-center group">
               <div className="h-32 w-full flex items-center justify-center mb-4 px-2">
                  <img 
-                    src="https://gopengglampingpark.com/wp-content/uploads/2024/02/preview-halal.png" 
+                    src="/images/award-halal.png" 
                     alt="Halal" 
                     className="max-h-full max-w-[140px] object-contain transition-transform group-hover:scale-105 filter drop-shadow-sm"
                  />
@@ -192,7 +180,7 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
            <div className="flex flex-col items-center group">
               <div className="h-32 w-full flex items-center justify-center mb-4 px-2">
                  <img 
-                    src="https://gopengglampingpark.com/wp-content/uploads/2025/01/OUTDOOR-AWARD-01-1024x1024.png" 
+                    src="/images/award-tourism.png" 
                     alt="Perak Tourism Award" 
                     className="max-h-full max-w-[140px] object-contain transition-transform group-hover:scale-105 filter drop-shadow-sm"
                  />
@@ -208,7 +196,7 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
       <section id="stay" className="py-20 bg-gray-50 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 flex justify-between items-end">
            <div>
-             <h2 className="text-4xl md:text-5xl font-display font-bold text-dark-900">{trans.features.accomTitle}</h2>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-dark-900">{trans.features.accomTitle}</h2>
              <p className="text-gray-500 mt-2">{trans.features.accomSub}</p>
              <div className="h-1 w-24 bg-brand-500 mt-4"></div>
            </div>
@@ -256,7 +244,7 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
                       onClick={(e) => nextImage(acc.id, acc.images.length, e)}
                       className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 z-20 pointer-events-auto"
                    >
-                     <ChevronRight size={20} />
+                      <ChevronRight size={20} />
                    </button>
                    
                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
@@ -290,7 +278,7 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
                         {acc.features.map((feat, i) => (
                           <div key={i} className="flex items-center gap-2 text-sm text-dark-800 font-medium">
                             <span className="w-1.5 h-1.5 bg-brand-500 rounded-full flex-shrink-0"></span>
-                            {feat}
+                             {feat}
                           </div>
                         ))}
                       </div>
@@ -299,13 +287,12 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
                    <button 
                     onClick={() => onNavigate(AppSection.RATES)}
                     className="w-full py-4 border-2 border-dark-900 text-dark-900 hover:bg-dark-900 hover:text-white font-bold font-display uppercase tracking-wider text-xs transition-all flex items-center justify-center gap-2"
-                   >
+                    >
                      {trans.features.discover}
                    </button>
                 </div>
               </div>
             ))}
-            
              <div className="min-w-[20px]"></div>
         </div>
 

@@ -1,4 +1,3 @@
-
 import React, { useRef, useState } from 'react';
 import { Activity } from '../types';
 import { Clock, Shield, ChevronRight, ChevronLeft, MapPin, Play, X, Download, FileImage } from 'lucide-react';
@@ -23,10 +22,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.rafting.desc,
       duration: '3 Hours',
       difficulty: 'Moderate',
-      imageUrl: 'https://gopengglampingpark.com/wp-content/uploads/2025/01/GGPGALLERY8.jpg',
+      imageUrl: '/images/activity-rafting.jpg',
       price: 'RM 150',
       priceUnit: trans.activities.perPerson,
-      videoUrl: 'https://gopengglampingpark.com/wp-content/uploads/2025/11/WWR.mp4'
+      videoUrl: '/videos/activity-rafting.mp4'
     },
     {
       id: 'rafting-funtrip',
@@ -34,10 +33,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.funtrip.desc,
       duration: '2 Hours',
       difficulty: 'Easy',
-      imageUrl: 'https://gopengglampingpark.com/wp-content/uploads/2025/01/GGPGALLERY6.jpg',
+      imageUrl: '/images/activity-funtrip.jpg',
       price: 'RM 350',
       priceUnit: `${trans.activities.perBoat} (Max 5)`,
-      videoUrl: 'https://gopengglampingpark.com/wp-content/uploads/2025/11/Funtrip-Rafting.mp4'
+      videoUrl: '/videos/activity-funtrip.mp4'
     },
     {
       id: 'abseiling',
@@ -45,10 +44,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.abseil.desc,
       duration: '3 Hours',
       difficulty: 'Hard',
-      imageUrl: 'https://gopengglampingpark.com/wp-content/uploads/2025/11/Waterfall.png',
+      imageUrl: '/images/activity-abseil.png',
       price: 'RM 90',
       priceUnit: `${trans.activities.perPerson} (Min 10)`,
-      videoUrl: 'https://gopengglampingpark.com/wp-content/uploads/2025/11/Waterfall-Abseil2.mp4'
+      videoUrl: '/videos/activity-abseil.mp4'
     },
     {
       id: 'atv',
@@ -56,10 +55,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.atv.desc,
       duration: '1.5 Hours',
       difficulty: 'Moderate',
-      imageUrl: 'https://gopengglampingpark.com/wp-content/uploads/2023/10/GOPENG-GLAMPING-PARK-ADVENTURE-ACTIVITY8.jpg',
+      imageUrl: '/images/activity-atv.jpg',
       price: 'RM 120',
       priceUnit: `${trans.activities.perUnit} (2 Pax)`,
-      videoUrl: 'https://gopengglampingpark.com/wp-content/uploads/2025/11/ATV.mp4'
+      videoUrl: '/videos/activity-atv.mp4'
     },
     {
       id: 'hiking',
@@ -67,10 +66,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.hiking.desc,
       duration: '2 Hours',
       difficulty: 'Moderate',
-      imageUrl: 'https://gopengglampingpark.com/wp-content/uploads/2025/11/Screenshot-2025-11-26-044102.png',
+      imageUrl: '/images/activity-hiking.png',
       price: 'RM 55',
       priceUnit: trans.activities.perPerson,
-      videoUrl: 'https://gopengglampingpark.com/wp-content/uploads/2025/11/Sunset.mp4'
+      videoUrl: '/videos/activity-hiking.mp4'
     },
     {
       id: 'caving',
@@ -78,10 +77,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.cave.desc,
       duration: '3 Hours',
       difficulty: 'Moderate',
-      imageUrl: 'https://www.tourismperakmalaysia.com/wp-content/uploads/2022/11/Tempurung-Cave-1200x675.jpg',
+      imageUrl: '/images/activity-caving.jpg',
       price: 'RM 65',
       priceUnit: '(MyKad) | RM 95 (Intl)',
-      videoUrl: 'https://gopengglampingpark.com/wp-content/uploads/2025/11/Cave.mp4'
+      videoUrl: '/videos/activity-caving.mp4'
     },
     {
       id: 'paintball',
@@ -89,10 +88,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.paintball.desc,
       duration: '2 Hours',
       difficulty: 'Moderate',
-      imageUrl: 'https://gopengglampingpark.com/wp-content/uploads/2023/10/366234837_610069641233746_6201757870837643362_n.jpg',
+      imageUrl: '/images/activity-paintball.jpg',
       price: 'RM 90',
       priceUnit: `${trans.activities.perPerson} (Min 4)`,
-      videoUrl: 'https://gopengglampingpark.com/wp-content/uploads/2025/11/Paintball.mp4'
+      videoUrl: '/videos/activity-paintball.mp4'
     },
     {
       id: 'buggy',
@@ -100,10 +99,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.buggy.desc,
       duration: '30 Mins',
       difficulty: 'Moderate',
-      imageUrl: 'https://gopengglampingpark.com/wp-content/uploads/2025/11/unnamed.jpg',
+      imageUrl: '/images/activity-buggy.jpg',
       price: 'RM 180',
       priceUnit: `${trans.activities.perUnit} (2 Pax)`,
-      videoUrl: 'https://gopengglampingpark.com/wp-content/uploads/2025/11/F1.mp4'
+      videoUrl: '/videos/activity-buggy.mp4'
     }
   ];
 
@@ -158,7 +157,7 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
         <div>
            <span className="text-brand-500 font-bold uppercase tracking-widest text-sm mb-2 block">{trans.activities.header}</span>
            <h2 className="font-display text-4xl md:text-6xl font-bold text-white uppercase tracking-wider">
-            {trans.activities.title}
+             {trans.activities.title}
           </h2>
         </div>
         
@@ -185,13 +184,13 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
           className="flex overflow-x-auto gap-6 px-6 md:px-20 pb-8 hide-scrollbar snap-x snap-mandatory h-[60vh] md:h-[65vh] items-center"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {allActivities.map((activity, index) => (
+           {allActivities.map((activity, index) => (
             <div 
               key={activity.id} 
               className="relative min-w-[85vw] md:min-w-[500px] lg:min-w-[700px] h-full rounded-[2rem] overflow-hidden snap-center group shadow-2xl border border-white/10 flex-shrink-0 cursor-default select-none"
             >
               <div className="absolute inset-0">
-                <img 
+                 <img 
                   src={activity.imageUrl} 
                   alt={activity.title} 
                   className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
@@ -212,7 +211,7 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
                    </div>
                 </div>
 
-                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                 <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                   
                   <div className="flex md:hidden items-center gap-3 mb-3">
                      <div className="bg-black/60 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest flex items-center gap-2">
@@ -234,17 +233,17 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
                     </div>
                   </div>
                   
-                  <div className="flex items-center gap-6 text-gray-300 mb-6 text-sm font-medium">
+                   <div className="flex items-center gap-6 text-gray-300 mb-6 text-sm font-medium">
                     <span className="flex items-center gap-2"><Clock size={16} className="text-brand-500" /> {activity.duration}</span>
                     <span className="flex items-center gap-2"><MapPin size={16} className="text-brand-500" /> Gopeng, Perak</span>
                   </div>
 
-                  <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-8 max-w-xl opacity-90 hidden sm:block">
+                   <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-8 max-w-xl opacity-90 hidden sm:block">
                     {activity.description}
                   </p>
                   
                   <div className="sm:hidden mb-6 max-w-xl">
-                    <p className={`text-gray-300 text-sm leading-relaxed opacity-90 ${expandedDescriptions.has(activity.id) ? '' : 'line-clamp-3'}`}>
+                   <p className={`text-gray-300 text-sm leading-relaxed opacity-90 ${expandedDescriptions.has(activity.id) ? '' : 'line-clamp-3'}`}>
                       {activity.description}
                     </p>
                     <button 
@@ -269,12 +268,12 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
           
           <div className="min-w-[300px] h-full flex items-center justify-center snap-center">
             <div className="text-center p-8">
-               <Shield size={48} className="text-brand-500 mx-auto mb-4 opacity-50" />
+                <Shield size={48} className="text-brand-500 mx-auto mb-4 opacity-50" />
                <h3 className="text-white font-display text-xl font-bold uppercase mb-2">{trans.activities.endTitle}</h3>
                <p className="text-gray-500 text-sm mb-6">{trans.activities.endDesc}</p>
                <button onClick={() => scrollContainerRef.current?.scrollTo({left: 0, behavior: 'smooth'})} className="text-brand-500 hover:text-brand-400 uppercase text-xs font-bold tracking-widest border-b border-brand-500 pb-1">{trans.activities.backStart}</button>
             </div>
-          </div>
+           </div>
 
         </div>
       </div>
@@ -291,11 +290,11 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
               </div>
            </div>
            <button 
-             onClick={() => setLightboxImage("https://gopengglampingpark.com/wp-content/uploads/2025/11/ADVENTURE-ACTIVITIES-1-scaled.png")}
+             onClick={() => setLightboxImage("/images/brochure-activities.png")}
              className="bg-white hover:bg-brand-50 text-brand-600 px-6 py-3 rounded-xl font-bold uppercase tracking-wider text-sm flex items-center gap-2 transition-all w-full md:w-auto justify-center shadow-lg"
            >
               <Download size={18} /> {trans.activities.viewBrochure}
-           </button>
+            </button>
         </div>
       </div>
 
@@ -304,7 +303,7 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
            <button 
              onClick={() => setActiveVideo(null)}
              className="absolute top-6 right-6 text-white hover:text-brand-500 transition-colors p-2 bg-white/10 rounded-full"
-           >
+            >
              <X size={32} />
            </button>
            
@@ -316,8 +315,8 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
                    autoPlay 
                    className="w-full h-full object-contain"
                  >
-                   Your browser does not support the video tag.
-                 </video>
+               Your browser does not support the video tag.
+                </video>
               </div>
               <p className="text-center text-gray-400 text-sm mt-6 uppercase tracking-widest animate-pulse">Playing Adventure Preview</p>
            </div>
@@ -353,7 +352,7 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
              />
           </div>
         </div>
-      )}
+       )}
 
     </div>
   );

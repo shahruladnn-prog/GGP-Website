@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Check, X, Coffee, Utensils, Moon, Sun, AlertCircle, FileText, ArrowRight, ShieldAlert, Users, ZoomIn, Download } from 'lucide-react';
 import { AppSection } from '../types';
@@ -17,9 +16,9 @@ const RatesPage: React.FC<RatesPageProps> = ({ onBook, onBack }) => {
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   const URLS = {
-    menu: "https://gopengglampingpark.com/wp-content/uploads/2025/11/FULLBOARD-MENU.png",
-    cohabitation: "https://gopengglampingpark.com/wp-content/uploads/2025/11/MAHRAM.jpg",
-    rules: "https://gopengglampingpark.com/wp-content/uploads/2025/11/GLAMPING-RULES.jpg"
+    menu: "/images/rates-menu.png",
+    cohabitation: "/images/rates-policy-mahram.jpg",
+    rules: "/images/rates-policy-rules.jpg"
   };
 
   return (
@@ -227,7 +226,7 @@ const RatesPage: React.FC<RatesPageProps> = ({ onBook, onBack }) => {
                       </div>
                    </div>
 
-                    <button 
+                   <button 
                       onClick={() => setLightboxImage(URLS.menu)}
                       className="w-full bg-white/5 hover:bg-white/10 border border-white/20 text-white rounded-xl p-4 flex items-center justify-between group transition-all"
                     >
@@ -239,7 +238,7 @@ const RatesPage: React.FC<RatesPageProps> = ({ onBook, onBack }) => {
                          </div>
                       </div>
                       <ArrowRight size={16} className="text-gray-400 group-hover:text-brand-500 group-hover:translate-x-1 transition-all"/>
-                    </button>
+                   </button>
                 </div>
              </div>
           </div>

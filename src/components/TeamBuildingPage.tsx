@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { FileText, Download, Lock, Users, Briefcase, Award, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -17,28 +16,28 @@ const TeamBuildingPage: React.FC<TeamBuildingPageProps> = ({ onBook }) => {
       title: trans.team.packages.day.title,
       description: trans.team.packages.day.desc,
       type: 'image',
-      url: 'https://gopengglampingpark.com/wp-content/uploads/2025/11/DAY-TRIP-TEAM-BUILDING.jpg'
+      url: '/images/tb-daytrip.jpg'
     },
     {
       id: '2d1n',
       title: trans.team.packages.d2n1.title,
       description: trans.team.packages.d2n1.desc,
       type: 'pdf',
-      url: 'https://gopengglampingpark.com/wp-content/uploads/2025/11/2H1M-TB-2025.pdf'
+      url: '/documents/tb-2d1n.pdf'
     },
     {
       id: '3d2n',
       title: trans.team.packages.d3n2.title,
       description: trans.team.packages.d3n2.desc,
       type: 'pdf',
-      url: 'https://gopengglampingpark.com/wp-content/uploads/2025/11/3H2M-TB-2025.pdf'
+      url: '/documents/tb-3d2n.pdf'
     },
     {
       id: 'family-day',
       title: trans.team.packages.family.title,
       description: trans.team.packages.family.desc,
       type: 'pdf',
-      url: 'https://gopengglampingpark.com/wp-content/uploads/2025/11/FAMILY-DAY-TB-2025.pdf'
+      url: '/documents/tb-family.pdf'
     },
     {
       id: 'hrdf',
@@ -50,17 +49,16 @@ const TeamBuildingPage: React.FC<TeamBuildingPageProps> = ({ onBook }) => {
   ];
 
   const GALLERY_IMAGES = [
-    "https://gopengglampingpark.com/wp-content/uploads/2025/01/GGPGALLERY3.jpg",
-    "https://gopengglampingpark.com/wp-content/uploads/2024/06/440402985_18265456021224548_7998714459964710304_n.jpg",
-    "https://gopengglampingpark.com/wp-content/uploads/2024/06/IMG_8509-scaled.jpg",
-    "https://gopengglampingpark.com/wp-content/uploads/2023/10/GOPENG-GLAMPING-PARK-ADVENTURE-ACTIVITY17.jpg",
-    "https://gopengglampingpark.com/wp-content/uploads/2023/10/GOPENG-GLAMPING-PARK-ADVENTURE-ACTIVITY13.jpg",
-    "https://gopengglampingpark.com/wp-content/uploads/2023/10/GOPENG-GLAMPING-PARK-ADVENTURE-ACTIVITY6.jpg"
+    "/images/gallery-1.jpg",
+    "/images/gallery-2.jpg",
+    "/images/gallery-3.jpg",
+    "/images/gallery-4.jpg",
+    "/images/gallery-5.jpg",
+    "/images/gallery-6.jpg"
   ];
 
   const handleOpenBrochure = (item: typeof BROCHURES[0]) => {
     if (item.type === 'coming-soon') return;
-    
     if (item.type === 'image') {
       setLightboxImage(item.url);
     } else {

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Tent, Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -20,7 +19,7 @@ const Footer: React.FC = () => {
             <div className="mb-6">
               {!logoError ? (
                 <img 
-                  src="https://gopengglampingpark.com/wp-content/uploads/2023/08/GGP-LOGO-01-1-300x300.png" 
+                  src="/images/logo.png" 
                   alt="Gopeng Glamping Park" 
                   className="h-16 w-auto"
                   onError={() => setLogoError(true)}
@@ -98,7 +97,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
-          <p>&copy; {new Date().getFullYear()} {trans.footer.rights}</p>
+          <p>© {new Date().getFullYear()} {trans.footer.rights}</p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <span className="flex items-center gap-1"><div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div> {trans.footer.official}</span>
           </div>

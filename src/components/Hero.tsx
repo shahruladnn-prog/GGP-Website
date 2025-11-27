@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronDown, ArrowRight, PlayCircle, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -17,7 +16,7 @@ const Hero: React.FC<HeroProps> = ({ onExplore, onWatchVideo }) => {
       {/* Background Image - Authentic Image from Site */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://gopengglampingpark.com/wp-content/uploads/2025/01/IMG_0005.jpg" 
+          src="/images/hero-bg.jpg" 
           alt="Gopeng Glamping Park Atmosphere" 
           className="w-full h-full object-cover opacity-80 scale-105 animate-slow-zoom"
           style={{ animation: 'zoom 20s infinite alternate' }}
@@ -80,7 +79,7 @@ const Hero: React.FC<HeroProps> = ({ onExplore, onWatchVideo }) => {
                 className="w-full h-full object-contain"
                 controls 
                 autoPlay
-                src="https://gopengglampingpark.com/wp-content/uploads/2025/11/Gopeng-Glamping-Park-Official_2.mp4"
+                src="/videos/hero-main.mp4"
              >
                Your browser does not support the video tag.
              </video>

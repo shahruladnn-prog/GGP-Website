@@ -1,21 +1,20 @@
-
 import React from 'react';
 import { AppSection } from '../types';
 import { Instagram, ExternalLink } from 'lucide-react';
 
 const galleryImages = [
-  "https://gopengglampingpark.com/wp-content/uploads/2025/01/GGPGALLERY8.jpg",
-  "https://gopengglampingpark.com/wp-content/uploads/2025/01/GGPGALLERY6.jpg",
-  "https://gopengglampingpark.com/wp-content/uploads/2023/10/GOPENG-GLAMPING-PARK-ADVENTURE-ACTIVITY8.jpg",
-  "https://gopengglampingpark.com/wp-content/uploads/2025/11/Screenshot-2025-11-26-044102.png",
-  "https://gopengglampingpark.com/wp-content/uploads/2023/10/366234837_610069641233746_6201757870837643362_n.jpg",
-  "https://gopengglampingpark.com/wp-content/uploads/2025/11/unnamed.jpg",
-  "https://gopengglampingpark.com/wp-content/uploads/2025/01/GGPGALLERY3.jpg",
-  "https://gopengglampingpark.com/wp-content/uploads/2024/06/440402985_18265456021224548_7998714459964710304_n.jpg",
-  "https://gopengglampingpark.com/wp-content/uploads/2024/06/IMG_8509-scaled.jpg",
-  "https://gopengglampingpark.com/wp-content/uploads/2023/10/GOPENG-GLAMPING-PARK-ADVENTURE-ACTIVITY17.jpg",
-  "https://gopengglampingpark.com/wp-content/uploads/2023/10/GOPENG-GLAMPING-PARK-ADVENTURE-ACTIVITY13.jpg",
-  "https://gopengglampingpark.com/wp-content/uploads/2023/10/GOPENG-GLAMPING-PARK-ADVENTURE-ACTIVITY6.jpg"
+  "/images/gallery-1.jpg",
+  "/images/gallery-2.jpg",
+  "/images/gallery-3.jpg",
+  "/images/gallery-4.jpg",
+  "/images/gallery-5.jpg",
+  "/images/gallery-6.jpg",
+  "/images/gallery-7.jpg",
+  "/images/gallery-8.jpg",
+  "/images/gallery-9.jpg",
+  "/images/gallery-10.jpg",
+  "/images/gallery-11.jpg",
+  "/images/gallery-12.jpg"
 ];
 
 const Gallery: React.FC = () => {
@@ -33,13 +32,12 @@ const Gallery: React.FC = () => {
             <Instagram size={16} /> @gopengglampingpark
           </span>
           <h2 className="font-display text-4xl md:text-5xl text-dark-900 font-bold group-hover:text-brand-600 transition-colors">
-            FOLLOW OUR ADVENTURE
+             FOLLOW OUR ADVENTURE
           </h2>
           <div className="h-1 w-20 bg-brand-500 mx-auto mt-6"></div>
         </div>
 
-        {/* 
-          Desktop: Columns (Masonry effect)
+        {/* Desktop: Columns (Masonry effect)
           Mobile: Flex Row (Horizontal Slider) 
         */}
         <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:block md:columns-2 lg:columns-4 md:space-y-4 hide-scrollbar pb-6" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
@@ -60,7 +58,7 @@ const Gallery: React.FC = () => {
             </div>
           ))}
         </div>
-        
+       
         {/* CTA */}
         <div className="text-center mt-8">
             <button 
