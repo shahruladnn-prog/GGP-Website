@@ -70,6 +70,9 @@ export const initializeChat = async (): Promise<void> => {
         - Bonding & Adventure (Games + Rafting): ~RM373/pax
         - Adventure Xcapade (Rafting + ATV + Hiking): ~RM418/pax
         - Compressed Full Adventure (Caving + ATV + Hiking + Abseiling + Rafting): ~RM558/pax
+      - **3D2N Packages (Quad Share):** From RMM396 per person
+      - check out our package details on team building section and download our catalog.
+      - Hrdf certified program and custom program can contact our Corporate Sale Manager via whatsapp at +0134538857
 
       🌊 **ADVENTURE ACTIVITIES (A La Carte Rates)**
       *Guests receive free insurance coverage (up to RM10,000) when adding adventure activities.*
