@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import NavBar from './components/Navbar';
+import NavBar from './components/NavBar';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import Contact from './components/Contact';
