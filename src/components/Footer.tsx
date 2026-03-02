@@ -14,18 +14,18 @@ const Footer: React.FC = () => {
     <footer className="bg-dark-950 text-gray-400 pt-20 pb-10 border-t border-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
-          
-          <div className="col-span-1 md:col-span-1">
+
+          <div className="col-span-1 md:col-span-1 flex flex-col items-center text-center">
             <div className="mb-6">
               {!logoError ? (
-                <img 
-                  src="/images/logo.png" 
-                  alt="Gopeng Glamping Park" 
+                <img
+                  src="/images/logo.png"
+                  alt="Gopeng Glamping Park"
                   className="h-16 w-auto"
                   onError={() => setLogoError(true)}
                 />
               ) : (
-                <div className="flex items-center gap-2 mb-6 text-white group cursor-pointer">
+                <div className="flex items-center gap-2 mb-6 text-white group cursor-pointer justify-center">
                   <div className="bg-brand-600 p-1.5 rounded">
                     <Tent size={24} />
                   </div>
@@ -33,10 +33,14 @@ const Footer: React.FC = () => {
                 </div>
               )}
             </div>
+            <div className="mb-6 text-gray-400">
+              <p className="text-sm font-semibold text-white">Glamping Park Travel and Tour Sdn Bhd</p>
+              <p className="text-xs mt-1">(201901028420) (1337749-X)</p>
+            </div>
             <p className="text-sm leading-relaxed mb-6 text-gray-500">
               {trans.footer.desc}
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center">
               <a href="#" className="bg-gray-800 p-2 rounded hover:bg-brand-600 hover:text-white transition-all"><Facebook size={18} /></a>
               <a href="#" className="bg-gray-800 p-2 rounded hover:bg-brand-600 hover:text-white transition-all"><Instagram size={18} /></a>
               <a href="#" className="bg-gray-800 p-2 rounded hover:bg-brand-600 hover:text-white transition-all"><Twitter size={18} /></a>
@@ -57,7 +61,7 @@ const Footer: React.FC = () => {
             <h4 className="text-white font-display font-bold uppercase tracking-wider mb-6">{trans.footer.info}</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <button 
+                <button
                   onClick={() => setShowTerms(true)}
                   className="hover:text-brand-500 transition-colors text-left"
                 >
@@ -65,8 +69,8 @@ const Footer: React.FC = () => {
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => setShowPrivacy(true)} 
+                <button
+                  onClick={() => setShowPrivacy(true)}
                   className="hover:text-brand-500 transition-colors text-left"
                 >
                   Privacy Policy
@@ -82,7 +86,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="mt-0.5 shrink-0 text-brand-500" />
-                <span>Lot 10846 Jalan Besar Kg Chulek,<br/>31600 Gopeng, Perak.</span>
+                <span>Lot 10846 Jalan Besar Kg Chulek,<br />31600 Gopeng, Perak.</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-brand-500" />
@@ -103,7 +107,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       <PrivacyPolicyModal isOpen={showPrivacy} onClose={() => setShowPrivacy(false)} />
       <TermsModal isOpen={showTerms} onClose={() => setShowTerms(false)} />
     </footer>
