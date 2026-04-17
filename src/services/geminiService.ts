@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import { GoogleGenAI, Chat } from "@google/genai";
 
 let chatSession: Chat | null = null;
@@ -6,7 +7,12 @@ let genAI: GoogleGenAI | null = null;
 // Initialize the API client
 const getGenAI = (): GoogleGenAI => {
   if (!genAI) {
-    genAI = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    // Standard Vite env variable injection
+    const apiKey = import.meta.env.VITE_GOOGLE_API_KEY || import.meta.env.VITE_API_KEY;
+    if (!apiKey) {
+      console.error("Gemini API key is missing. Make sure VITE_GOOGLE_API_KEY is set in Vercel environment variables.");
+    }
+    genAI = new GoogleGenAI({ apiKey: apiKey });
   }
   return genAI;
 };
