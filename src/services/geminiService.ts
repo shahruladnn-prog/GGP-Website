@@ -14,7 +14,7 @@ const getGenAI = (): GoogleGenAI => {
 export const initializeChat = async (): Promise<void> => {
   const ai = getGenAI();
   chatSession = ai.chats.create({
-    model: 'gemini-2.5-flash',
+    model: 'gemini-1.5-flash',
     config: {
       systemInstruction: `
       You are RANGER G 🌿, the friendly AI concierge for Gopeng Glamping Park (GGP).

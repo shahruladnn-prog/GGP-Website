@@ -68,14 +68,24 @@ const Contact: React.FC = () => {
               <div className="space-y-10">
                 
                 <div className="flex items-start gap-4">
-                  <div className="bg-white/10 p-3 rounded-lg text-brand-500 mt-1">
+                  <a
+                    href="https://maps.app.goo.gl/X7j1ewBySvhvE73F8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white/10 hover:bg-brand-500/20 p-3 rounded-lg text-brand-500 mt-1 transition-colors cursor-pointer"
+                  >
                     <MapPin size={24} />
-                  </div>
+                  </a>
                   <div>
                     <h4 className="font-bold uppercase tracking-wider text-sm mb-2 text-white">{trans.contact.location}</h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">
+                    <a
+                      href="https://maps.app.goo.gl/X7j1ewBySvhvE73F8"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-300 text-sm leading-relaxed hover:text-brand-400 transition-colors"
+                    >
                        Lot 10846 Jalan Besar Kg Chulek,<br/>31600 Gopeng, Perak. MALAYSIA
-                    </p>
+                    </a>
                   </div>
                 </div>
 
@@ -85,12 +95,14 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold uppercase tracking-wider text-sm mb-2 text-white">{trans.contact.sales}</h4>
-                    <p className="text-gray-300 text-sm font-medium mb-1 flex items-center gap-2">
-                       <Phone size={14} className="text-brand-500"/> +60 13-240 8857
-                    </p>
-                    <p className="text-gray-300 text-sm font-medium flex items-center gap-2">
-                       <Mail size={14} className="text-brand-500"/> booking@gopengglampingpark.com
-                    </p>
+                    <a href="https://wa.me/60132408857" target="_blank" rel="noopener noreferrer"
+                       className="text-gray-300 text-sm font-medium mb-1 flex items-center gap-2 hover:text-brand-400 transition-colors group">
+                       <Phone size={14} className="text-brand-500 group-hover:text-brand-400"/> +60 13-240 8857
+                    </a>
+                    <a href="mailto:booking@gopengglampingpark.com"
+                       className="text-gray-300 text-sm font-medium flex items-center gap-2 hover:text-brand-400 transition-colors group">
+                       <Mail size={14} className="text-brand-500 group-hover:text-brand-400"/> booking@gopengglampingpark.com
+                    </a>
                   </div>
                 </div>
 
@@ -100,12 +112,14 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold uppercase tracking-wider text-sm mb-2 text-white">{trans.contact.corporate}</h4>
-                    <p className="text-gray-300 text-sm font-medium mb-1 flex items-center gap-2">
-                       <Phone size={14} className="text-brand-500"/> +60 13-453 8857
-                    </p>
-                    <p className="text-gray-300 text-sm font-medium flex items-center gap-2">
-                       <Mail size={14} className="text-brand-500"/> corporate@gopengglampingpark.com
-                    </p>
+                    <a href="https://wa.me/60134538857" target="_blank" rel="noopener noreferrer"
+                       className="text-gray-300 text-sm font-medium mb-1 flex items-center gap-2 hover:text-brand-400 transition-colors group">
+                       <Phone size={14} className="text-brand-500 group-hover:text-brand-400"/> +60 13-453 8857
+                    </a>
+                    <a href="mailto:corporate@gopengglampingpark.com"
+                       className="text-gray-300 text-sm font-medium flex items-center gap-2 hover:text-brand-400 transition-colors group">
+                       <Mail size={14} className="text-brand-500 group-hover:text-brand-400"/> corporate@gopengglampingpark.com
+                    </a>
                   </div>
                 </div>
 
@@ -115,12 +129,14 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold uppercase tracking-wider text-sm mb-2 text-white">{trans.contact.hr}</h4>
-                    <p className="text-gray-300 text-sm font-medium mb-1 flex items-center gap-2">
-                       <Phone size={14} className="text-brand-500"/> +60 19-225 8857
-                    </p>
-                    <p className="text-gray-300 text-sm font-medium flex items-center gap-2">
-                       <Mail size={14} className="text-brand-500"/> humanresource@gopengglampingpark.com
-                    </p>
+                    <a href="https://wa.me/60192258857" target="_blank" rel="noopener noreferrer"
+                       className="text-gray-300 text-sm font-medium mb-1 flex items-center gap-2 hover:text-brand-400 transition-colors group">
+                       <Phone size={14} className="text-brand-500 group-hover:text-brand-400"/> +60 19-225 8857
+                    </a>
+                    <a href="mailto:humanresource@gopengglampingpark.com"
+                       className="text-gray-300 text-sm font-medium flex items-center gap-2 hover:text-brand-400 transition-colors group">
+                       <Mail size={14} className="text-brand-500 group-hover:text-brand-400"/> humanresource@gopengglampingpark.com
+                    </a>
                   </div>
                 </div>
 
