@@ -13,13 +13,14 @@ const Hero: React.FC<HeroProps> = ({ onExplore, onWatchVideo }) => {
 
   return (
     <div className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Background Image - Authentic Image from Site */}
+      {/* Background Image — Cloudinary CDN, no lazy (LCP element) */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/images/hero-bg.jpg" 
+          src="https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/hero-bg_zbvzlr.jpg" 
           alt="Gopeng Glamping Park Atmosphere" 
-          className="w-full h-full object-cover opacity-80 scale-105 animate-slow-zoom"
+          className="w-full h-full object-cover opacity-80 scale-105"
           style={{ animation: 'zoom 20s infinite alternate' }}
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/50"></div>
         <div className="absolute inset-0 bg-brand-900/10 mix-blend-overlay"></div>
@@ -64,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({ onExplore, onWatchVideo }) => {
       
       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-brand-600 via-brand-400 to-brand-600"></div>
 
-      {/* Video Modal */}
+      {/* Video Modal — YouTube embed (landscape 16:9) */}
       {showVideo && (
         <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8 animate-in fade-in duration-300">
           <button 
@@ -74,15 +75,14 @@ const Hero: React.FC<HeroProps> = ({ onExplore, onWatchVideo }) => {
             <X size={32} />
           </button>
           
-          <div className="w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-800 relative flex items-center justify-center">
-             <video 
-                className="w-full h-full object-contain"
-                controls 
-                autoPlay
-                src="/videos/hero-main.mp4"
-             >
-               Your browser does not support the video tag.
-             </video>
+          <div className="w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-800">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/LfUwQdAlJAI?autoplay=1&rel=0&modestbranding=1"
+              title="Gopeng Glamping Park — Official Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
           </div>
         </div>
       )}
@@ -101,3 +101,4 @@ const Hero: React.FC<HeroProps> = ({ onExplore, onWatchVideo }) => {
 };
 
 export default Hero;
+

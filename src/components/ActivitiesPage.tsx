@@ -3,6 +3,15 @@ import { Activity } from '../types';
 import { Clock, Shield, ChevronRight, ChevronLeft, MapPin, Play, X, Download, FileImage } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
+// Carbon fibre texture as inline CSS (no external CDN dependency)
+const CARBON_TEXTURE_STYLE: React.CSSProperties = {
+  backgroundImage: `repeating-linear-gradient(
+    45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 10px
+  ), repeating-linear-gradient(
+    -45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 10px
+  )`
+};
+
 interface ActivitiesSectionProps {
   onBack: () => void;
   onBook: () => void;
@@ -11,6 +20,7 @@ interface ActivitiesSectionProps {
 const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
   const { trans } = useLanguage();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  // activeVideo now stores a YouTube video ID (string) instead of a file path
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [expandedDescriptions, setExpandedDescriptions] = useState<Set<string>>(new Set());
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
@@ -22,10 +32,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.rafting.desc,
       duration: '3 Hours',
       difficulty: 'Moderate',
-      imageUrl: '/images/activity-rafting.jpg',
+      imageUrl: 'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/activity-rafting_bthxhw.jpg',
       price: 'RM 150',
       priceUnit: trans.activities.perPerson,
-      videoUrl: '/videos/activity-rafting.mp4'
+      videoUrl: 'j3BzX5QWBVc'
     },
     {
       id: 'rafting-funtrip',
@@ -33,10 +43,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.funtrip.desc,
       duration: '2 Hours',
       difficulty: 'Easy',
-      imageUrl: '/images/activity-funtrip.jpg',
+      imageUrl: 'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/activity-funtrip_kwa5vb.jpg',
       price: 'RM 350',
       priceUnit: `${trans.activities.perBoat} (Max 5)`,
-      videoUrl: '/videos/activity-funtrip.mp4'
+      videoUrl: 'sQc4kYHG8LM'
     },
     {
       id: 'abseiling',
@@ -44,10 +54,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.abseil.desc,
       duration: '3 Hours',
       difficulty: 'Hard',
-      imageUrl: '/images/activity-abseil.png',
+      imageUrl: 'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/activity-abseil_lgtvpz.png',
       price: 'RM 90',
       priceUnit: `${trans.activities.perPerson} (Min 10)`,
-      videoUrl: '/videos/activity-abseil.mp4'
+      videoUrl: 'XM_EChRkj5U'
     },
     {
       id: 'atv',
@@ -55,10 +65,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.atv.desc,
       duration: '1.5 Hours',
       difficulty: 'Moderate',
-      imageUrl: '/images/activity-atv.jpg',
+      imageUrl: 'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/activity-atv_hd2m20.jpg',
       price: 'RM 120',
       priceUnit: `${trans.activities.perUnit} (2 Pax)`,
-      videoUrl: '/videos/activity-atv.mp4'
+      videoUrl: '4O40cASb9GA'
     },
     {
       id: 'hiking',
@@ -66,10 +76,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.hiking.desc,
       duration: '2 Hours',
       difficulty: 'Moderate',
-      imageUrl: '/images/activity-hiking.png',
+      imageUrl: 'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/activity-hiking_mugun4.png',
       price: 'RM 55',
       priceUnit: trans.activities.perPerson,
-      videoUrl: '/videos/activity-hiking.mp4'
+      videoUrl: 'NQLauvPoMu0'
     },
     {
       id: 'caving',
@@ -77,10 +87,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.cave.desc,
       duration: '3 Hours',
       difficulty: 'Moderate',
-      imageUrl: '/images/activity-caving.jpg',
+      imageUrl: 'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/activity-caving.jpg_wtt1bl.jpg',
       price: 'RM 65',
       priceUnit: '(MyKad) | RM 95 (Intl)',
-      videoUrl: '/videos/activity-caving.mp4'
+      videoUrl: 'UI8ihUiImgc'
     },
     {
       id: 'paintball',
@@ -88,10 +98,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.paintball.desc,
       duration: '2 Hours',
       difficulty: 'Moderate',
-      imageUrl: '/images/activity-paintball.jpg',
+      imageUrl: 'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/activity-paintball_zwzzg2.jpg',
       price: 'RM 90',
       priceUnit: `${trans.activities.perPerson} (Min 4)`,
-      videoUrl: '/videos/activity-paintball.mp4'
+      videoUrl: 'QcP2Pq4I36k'
     },
     {
       id: 'buggy',
@@ -99,10 +109,10 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
       description: trans.activities.items.buggy.desc,
       duration: '30 Mins',
       difficulty: 'Moderate',
-      imageUrl: '/images/activity-buggy.jpg',
+      imageUrl: 'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/activity-buggy_b6mr9o.jpg',
       price: 'RM 180',
       priceUnit: `${trans.activities.perUnit} (2 Pax)`,
-      videoUrl: '/videos/activity-buggy.mp4'
+      videoUrl: 'ajNO_O4_5a4'
     }
   ];
 
@@ -130,9 +140,9 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
     });
   };
 
-  const handleWatch = (videoUrl: string | undefined) => {
-    if (videoUrl) {
-      setActiveVideo(videoUrl);
+  const handleWatch = (videoId: string | undefined) => {
+    if (videoId) {
+      setActiveVideo(videoId);
     } else {
       onBook(); 
     }
@@ -151,7 +161,8 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
   return (
     <div className="bg-dark-950 min-h-screen flex flex-col relative overflow-hidden py-24">
       
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none" style={{backgroundImage: 'url("https://www.transparenttextures.com/patterns/carbon-fibre.png")'}}></div>
+      {/* Carbon fibre texture — inline CSS, no external CDN */}
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none" style={CARBON_TEXTURE_STYLE}></div>
 
       <div className="relative z-20 px-6 md:px-12 pb-8 flex flex-col md:flex-row justify-between items-end gap-6">
         <div>
@@ -194,6 +205,7 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
                   src={activity.imageUrl} 
                   alt={activity.title} 
                   className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
                 <div className="absolute inset-0 bg-brand-900/20 mix-blend-overlay"></div>
@@ -290,7 +302,7 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
               </div>
            </div>
            <button 
-             onClick={() => setLightboxImage("/images/brochure-activities.png")}
+             onClick={() => setLightboxImage("https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/ADVENTURE_ACTIVITIES_2_xoxiph.png")}
              className="bg-white hover:bg-brand-50 text-brand-600 px-6 py-3 rounded-xl font-bold uppercase tracking-wider text-sm flex items-center gap-2 transition-all w-full md:w-auto justify-center shadow-lg"
            >
               <Download size={18} /> {trans.activities.viewBrochure}
@@ -298,31 +310,36 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
         </div>
       </div>
 
+      {/* YouTube Shorts Modal — portrait 9:16 format */}
       {activeVideo && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md animate-in fade-in duration-300">
            <button 
              onClick={() => setActiveVideo(null)}
-             className="absolute top-6 right-6 text-white hover:text-brand-500 transition-colors p-2 bg-white/10 rounded-full"
+             className="absolute top-6 right-6 text-white hover:text-brand-500 transition-colors p-2 bg-white/10 rounded-full z-50"
             >
              <X size={32} />
            </button>
            
-           <div className="w-full max-w-5xl px-4 md:px-8">
-              <div className="aspect-video w-full bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-800">
-                 <video 
-                   src={activeVideo} 
-                   controls 
-                   autoPlay 
-                   className="w-full h-full object-contain"
-                 >
-               Your browser does not support the video tag.
-                </video>
-              </div>
-              <p className="text-center text-gray-400 text-sm mt-6 uppercase tracking-widest animate-pulse">Playing Adventure Preview</p>
+           <div className="flex flex-col items-center gap-4">
+             {/* Portrait container for YouTube Shorts */}
+             <div 
+               className="bg-black rounded-2xl overflow-hidden shadow-2xl border border-gray-800"
+               style={{ width: 'min(360px, 85vw)', aspectRatio: '9/16', maxHeight: '80vh' }}
+             >
+               <iframe
+                 src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&rel=0&modestbranding=1`}
+                 className="w-full h-full"
+                 title="Activity Video"
+                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                 allowFullScreen
+               />
+             </div>
+             <p className="text-center text-gray-400 text-sm uppercase tracking-widest animate-pulse">Playing Adventure Preview</p>
            </div>
         </div>
       )}
 
+      {/* Brochure Lightbox */}
       {lightboxImage && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm animate-in fade-in duration-200" onClick={() => setLightboxImage(null)}>
           <div className="absolute top-4 right-4 flex items-center gap-3 z-50">
@@ -349,6 +366,7 @@ const ActivitiesSection: React.FC<ActivitiesSectionProps> = ({ onBook }) => {
                src={lightboxImage} 
                alt="Document Preview" 
                className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+               loading="lazy"
              />
           </div>
         </div>

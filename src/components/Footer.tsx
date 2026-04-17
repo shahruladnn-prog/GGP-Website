@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
             <div className="mb-6">
               {!logoError ? (
                 <img
-                  src="/images/logo.png"
+                  src="https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/logo_voz7sp.png"
                   alt="Gopeng Glamping Park"
                   className="h-16 w-auto"
                   onError={() => setLogoError(true)}

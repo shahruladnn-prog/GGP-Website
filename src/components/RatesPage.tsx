@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Check, X, Coffee, Utensils, Moon, Sun, AlertCircle, FileText, ArrowRight, ShieldAlert, Users, ZoomIn, Download } from 'lucide-react';
-import { AppSection } from '../types';
+import { Check, X, Utensils, AlertCircle, FileText, ArrowRight, ShieldAlert, Users, ZoomIn, Download } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 interface RatesPageProps {
@@ -16,9 +15,11 @@ const RatesPage: React.FC<RatesPageProps> = ({ onBook, onBack }) => {
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   const URLS = {
-    menu: "/images/rates-menu.png",
-    cohabitation: "/images/rates-policy-mahram.jpg",
-    rules: "/images/rates-policy-rules.jpg"
+    menu: "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/rates-menu_gg3mun.png",
+    cohabitation: "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/rates-policy-mahram_yzg9o4.jpg",
+    rules: "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/rates-policy-rules_wuae6h.jpg",
+    weekdayPoster: "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/WEEKDAYS_PACKAGE_1_ctw5vj.png",
+    weekendPoster: "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/WEEKEND_PACKAGE_1_pb15jt.png",
   };
 
   return (
@@ -34,10 +35,10 @@ const RatesPage: React.FC<RatesPageProps> = ({ onBook, onBack }) => {
         </div>
 
         <div className="flex justify-center mb-16 px-4">
-          <div className="bg-white p-1 rounded-full shadow-lg border border-gray-200 flex flex-row relative w-full md:w-auto md:min-w-[400px] max-w-md mx-auto">
+          <div className="bg-white p-1.5 rounded-full shadow-lg border border-gray-200 flex flex-row relative w-full md:w-auto md:min-w-[520px] max-w-lg mx-auto">
             <button
               onClick={() => setActiveTab('weekday')}
-              className={`relative z-10 flex-1 px-2 md:px-8 py-3 rounded-full font-display font-bold uppercase tracking-wide transition-all duration-300 text-[10px] md:text-sm whitespace-normal md:whitespace-nowrap text-center flex items-center justify-center leading-tight ${
+              className={`relative z-10 flex-1 px-4 md:px-10 py-4 rounded-full font-display font-bold uppercase tracking-wide transition-all duration-300 text-xs md:text-base whitespace-nowrap text-center flex items-center justify-center ${
                 activeTab === 'weekday' ? activeTabClass : inactiveTabClass
               }`}
             >
@@ -45,7 +46,7 @@ const RatesPage: React.FC<RatesPageProps> = ({ onBook, onBack }) => {
             </button>
             <button
               onClick={() => setActiveTab('weekend')}
-              className={`relative z-10 flex-1 px-2 md:px-8 py-3 rounded-full font-display font-bold uppercase tracking-wide transition-all duration-300 text-[10px] md:text-sm whitespace-normal md:whitespace-nowrap text-center flex items-center justify-center leading-tight ${
+              className={`relative z-10 flex-1 px-4 md:px-10 py-4 rounded-full font-display font-bold uppercase tracking-wide transition-all duration-300 text-xs md:text-base whitespace-nowrap text-center flex items-center justify-center ${
                 activeTab === 'weekend' ? activeTabClass : inactiveTabClass
               }`}
             >
@@ -53,7 +54,7 @@ const RatesPage: React.FC<RatesPageProps> = ({ onBook, onBack }) => {
             </button>
             
             <div 
-              className={`absolute top-1 bottom-1 rounded-full bg-brand-600 shadow-md transition-transform duration-300 ease-in-out w-[calc(50%-4px)] left-1 ${
+              className={`absolute top-1.5 bottom-1.5 rounded-full bg-brand-600 shadow-md transition-transform duration-300 ease-in-out w-[calc(50%-6px)] left-1.5 ${
                 activeTab === 'weekday' ? 'translate-x-0' : 'translate-x-full'
               }`}
             ></div>
@@ -62,219 +63,268 @@ const RatesPage: React.FC<RatesPageProps> = ({ onBook, onBack }) => {
 
         {/* WEEKDAY CONTENT */}
         <div className={`transition-opacity duration-500 ${activeTab === 'weekday' ? 'block opacity-100' : 'hidden opacity-0'}`}>
-          <div className="text-center mb-10">
-             <div className="inline-block bg-blue-50 text-blue-700 px-4 py-2 rounded-lg border border-blue-100 mb-4">
-                <span className="font-bold flex items-center gap-2"><Moon size={18}/> {trans.rates.weekdayLabel}</span>
-             </div>
-             <p className="text-gray-500 text-sm">{trans.rates.weekdayDesc}</p>
+
+          {/* View Poster Button */}
+          <div className="flex justify-center mb-10">
+            <button
+              onClick={() => setLightboxImage(URLS.weekdayPoster)}
+              className="group flex items-center gap-3 bg-dark-900 hover:bg-dark-800 text-white border border-white/10 hover:border-brand-500/50 px-6 py-3 rounded-xl shadow-lg transition-all hover:-translate-y-0.5"
+            >
+              <div className="bg-brand-600 p-1.5 rounded text-white group-hover:bg-brand-500 transition-colors">
+                <ZoomIn size={16} />
+              </div>
+              <div className="text-left">
+                <span className="block font-bold text-sm">View Package Poster</span>
+                <span className="text-[10px] text-gray-400">Weekdays Bed &amp; Breakfast</span>
+              </div>
+              <ArrowRight size={14} className="text-gray-500 group-hover:text-brand-400 group-hover:translate-x-1 transition-all ml-2" />
+            </button>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-              <div className="bg-dark-900 text-white p-6 text-center">
-                <h3 className="font-display text-2xl font-bold uppercase">{trans.features.tents.double.title}</h3>
-                <p className="text-brand-500 text-sm font-medium">{trans.features.tents.double.price}</p>
-              </div>
-              <div className="p-8 text-center border-b border-gray-100">
-                <span className="text-4xl font-display font-bold text-dark-900">RM 188</span>
-                <span className="text-gray-400 text-sm block mt-1">{trans.rates.perNight}</span>
-              </div>
-              <div className="p-8 bg-gray-50 flex-grow">
-                <ul className="space-y-4 text-sm text-gray-600 text-left">
-                  <li className="flex items-start gap-3"><Check size={18} className="text-brand-500 shrink-0"/> 1 Queen Bed (Max 2 Pax)</li>
-                  <li className="flex items-start gap-3"><Check size={18} className="text-brand-500 shrink-0"/> Breakfast for 2 Pax</li>
-                  <li className="flex items-start gap-3"><Check size={18} className="text-brand-500 shrink-0"/> Air Conditioning</li>
-                  <li className="flex items-start gap-3"><Check size={18} className="text-brand-500 shrink-0"/> Private Garden Area</li>
-                </ul>
-              </div>
+          {/* Hero label */}
+          <div className="bg-dark-900 rounded-3xl overflow-hidden shadow-2xl mb-8 relative">
+            <div className="absolute -top-16 -right-16 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="px-8 md:px-12 py-8 border-b border-white/10">
+              <span className="text-brand-500 font-bold uppercase tracking-[0.2em] text-xs mb-3 block">Room Night Basis</span>
+              <h3 className="font-display font-bold text-3xl md:text-4xl text-white uppercase leading-none mb-1">WEEKDAYS BED &amp; BREAKFAST</h3>
+              <p className="text-brand-400 font-display font-bold text-xl italic mb-4">Package</p>
+              <p className="text-gray-400 text-sm">Sunday, Monday, Tuesday, Wednesday &amp; Thursday</p>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-xl border-t-4 border-brand-500 overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 scale-105 z-10">
-              <div className="bg-dark-900 text-white p-6 text-center relative">
-                <h3 className="font-display text-2xl font-bold uppercase">{trans.features.tents.quad.title}</h3>
-                <p className="text-brand-500 text-sm font-medium">{trans.features.tents.quad.price}</p>
-              </div>
-              <div className="p-8 text-center border-b border-gray-100">
-                <span className="text-4xl font-display font-bold text-dark-900">RM 268</span>
-                <span className="text-gray-400 text-sm block mt-1">{trans.rates.perNight}</span>
-              </div>
-              <div className="p-8 bg-gray-50 flex-grow">
-                <ul className="space-y-4 text-sm text-gray-600 text-left">
-                  <li className="flex items-start gap-3"><Check size={18} className="text-brand-500 shrink-0"/> 2 Queen Beds (Max 4 Pax)</li>
-                  <li className="flex items-start gap-3"><Check size={18} className="text-brand-500 shrink-0"/> Breakfast for 4 Pax</li>
-                  <li className="flex items-start gap-3"><Check size={18} className="text-brand-500 shrink-0"/> Air Conditioning</li>
-                  <li className="flex items-start gap-3"><Check size={18} className="text-brand-500 shrink-0"/> Riverside View Available</li>
-                </ul>
-              </div>
+            {/* 3-column tent cards */}
+            <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
+              {[
+                { title: 'Double Tent', beds: '1 queen bed',  breakfast: '2', price: '198', min: 'Max 2 Pax' },
+                { title: 'Quad Tent',   beds: '2 queen beds', breakfast: '4', price: '278', min: 'Max 4 Pax', featured: true },
+                { title: 'Deluxe Tent', beds: '4 queen beds', breakfast: '8', price: '468', min: 'Max 8 Pax' },
+              ].map(tent => (
+                <div key={tent.title} className={`p-8 md:p-10 flex flex-col gap-6 ${tent.featured ? 'bg-white/[0.04]' : ''}`}>
+                  <div>
+                    <h4 className="font-display font-bold text-xl text-white uppercase mb-1">{tent.title}</h4>
+                    <p className="text-gray-500 text-xs">{tent.min}</p>
+                  </div>
+
+                  <ul className="space-y-2.5 text-sm text-gray-300 flex-1">
+                    <li className="flex items-start gap-2">
+                      <Check size={15} className="text-brand-500 shrink-0 mt-0.5" />
+                      <span>2 days 1 night accommodation in glamping tent with <span className="text-brand-400 font-bold">{tent.beds}</span></span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check size={15} className="text-brand-500 shrink-0 mt-0.5" />
+                      <span>Inclusive breakfast for <span className="text-brand-400 font-bold">{tent.breakfast} person</span></span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check size={15} className="text-brand-500 shrink-0 mt-0.5" />
+                      <span>Price excluded 8% SST</span>
+                    </li>
+                  </ul>
+
+                  {/* Price badge */}
+                  <div className="bg-brand-500/15 border border-brand-500/30 rounded-2xl py-4 px-5 text-center">
+                    <div className="flex items-baseline justify-center gap-1">
+                      <span className="text-brand-400 font-bold text-lg align-top leading-none">RM</span>
+                      <span className="font-display font-bold text-5xl text-brand-400 leading-none">{tent.price}</span>
+                    </div>
+                    <span className="text-brand-300/60 text-xs font-bold uppercase tracking-widest mt-1 block">/tent (2D1N)</span>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-              <div className="bg-dark-900 text-white p-6 text-center">
-                <h3 className="font-display text-2xl font-bold uppercase">{trans.features.tents.deluxe.title}</h3>
-                <p className="text-brand-500 text-sm font-medium">{trans.features.tents.deluxe.price}</p>
-              </div>
-              <div className="p-8 text-center border-b border-gray-100">
-                <span className="text-4xl font-display font-bold text-dark-900">RM 448</span>
-                <span className="text-gray-400 text-sm block mt-1">{trans.rates.perNight}</span>
-              </div>
-              <div className="p-8 bg-gray-50 flex-grow">
-                <ul className="space-y-4 text-sm text-gray-600 text-left">
-                  <li className="flex items-start gap-3"><Check size={18} className="text-brand-500 shrink-0"/> 4 Queen Beds (Max 8 Pax)</li>
-                  <li className="flex items-start gap-3"><Check size={18} className="text-brand-500 shrink-0"/> Breakfast for 8 Pax</li>
-                  <li className="flex items-start gap-3"><Check size={18} className="text-brand-500 shrink-0"/> Air Conditioning</li>
-                  <li className="flex items-start gap-3"><Check size={18} className="text-brand-500 shrink-0"/> Large Common Area</li>
-                </ul>
-              </div>
+            {/* Fine print */}
+            <div className="px-8 md:px-12 py-6 border-t border-white/10 bg-dark-950/50">
+              <ul className="space-y-1.5 text-xs text-gray-500">
+                <li>* Additional person charge of <span className="text-gray-400 font-medium">RM58</span> (FOC breakfast, no extra bed) per night</li>
+                <li>* School and Public Holiday surcharge of <span className="text-gray-400 font-medium">RM58</span> per tent/night (weekdays only)</li>
+                <li>* All prices subject to Local services charge (CPT) <span className="text-gray-400 font-medium">RM3/tent/night</span> (collect upon check-in)</li>
+                <li>* All prices shown subject to <span className="text-gray-400 font-medium">8% SST</span></li>
+              </ul>
             </div>
           </div>
 
-          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 max-w-4xl mx-auto mb-16">
-             <h4 className="font-display font-bold text-dark-900 mb-4 flex items-center gap-2"><AlertCircle size={20} className="text-brand-500"/> {trans.rates.policies.notes}</h4>
-             <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
-                <ul className="space-y-2">
-                   <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5"></div> {trans.rates.policies.surchargeHoliday}</li>
-                   <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5"></div> {trans.rates.policies.surchargePax}</li>
-                   <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5"></div> {trans.rates.policies.sst}</li>
-                   <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5"></div> {trans.rates.policies.cpt}</li>
-                </ul>
-                <ul className="space-y-2">
-                   <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-1.5"></div> {trans.rates.policies.facilities}</li>
-                   <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-1.5"></div> {trans.rates.policies.deposit}</li>
-                   <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-1.5"></div> {trans.rates.policies.tourismTax}</li>
-                </ul>
-             </div>
+          {/* Policies */}
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 max-w-4xl mx-auto mb-8">
+            <h4 className="font-display font-bold text-dark-900 mb-4 flex items-center gap-2 text-sm">
+              <AlertCircle size={16} className="text-brand-500"/> {trans.rates.policies.notes}
+            </h4>
+            <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5 shrink-0"/>{trans.rates.policies.sst}</li>
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5 shrink-0"/>{trans.rates.policies.cpt}</li>
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5 shrink-0"/>{trans.rates.policies.tourismTax}</li>
+              </ul>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-1.5 shrink-0"/>{trans.rates.policies.facilities}</li>
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-1.5 shrink-0"/>{trans.rates.policies.deposit}</li>
+              </ul>
+            </div>
           </div>
         </div>
 
         {/* WEEKEND CONTENT */}
         <div className={`transition-opacity duration-500 ${activeTab === 'weekend' ? 'block opacity-100' : 'hidden opacity-0'}`}>
-           <div className="text-center mb-10">
-             <div className="inline-block bg-brand-50 text-brand-700 px-4 py-2 rounded-lg border border-brand-100 mb-4">
-                <span className="font-bold flex items-center gap-2"><Sun size={18}/> {trans.rates.weekendLabel}</span>
-             </div>
-             <p className="text-gray-500 text-sm">{trans.rates.weekendDesc}</p>
+
+          {/* View Poster Button */}
+          <div className="flex justify-center mb-8">
+            <button
+              onClick={() => setLightboxImage(URLS.weekendPoster)}
+              className="group flex items-center gap-3 bg-dark-900 hover:bg-dark-800 text-white border border-white/10 hover:border-brand-500/50 px-6 py-3 rounded-xl shadow-lg transition-all hover:-translate-y-0.5"
+            >
+              <div className="bg-brand-600 p-1.5 rounded text-white group-hover:bg-brand-500 transition-colors">
+                <ZoomIn size={16} />
+              </div>
+              <div className="text-left">
+                <span className="block font-bold text-sm">View Package Poster</span>
+                <span className="text-[10px] text-gray-400">Weekend Fullboard Package</span>
+              </div>
+              <ArrowRight size={14} className="text-gray-500 group-hover:text-brand-400 group-hover:translate-x-1 transition-all ml-2" />
+            </button>
           </div>
 
-          <div className="bg-dark-900 rounded-3xl overflow-hidden shadow-2xl max-w-5xl mx-auto mb-16 text-white relative">
-             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500 opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-             
-             <div className="grid lg:grid-cols-2">
-                <div className="p-8 md:p-12 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-gray-800">
-                   <h3 className="font-display text-3xl font-bold mb-2">{trans.rates.weekendRates}</h3>
-                   <p className="text-brand-500 font-bold tracking-widest uppercase text-xs mb-8">{trans.rates.fullBoard}</p>
-                   
-                   <div className="grid sm:grid-cols-2 gap-6 mb-8">
-                      <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:bg-white/10 transition-colors">
-                        <span className="block text-gray-400 text-[10px] uppercase tracking-wider mb-2 font-bold">{trans.rates.friSun}</span>
-                        <div className="flex justify-center items-baseline gap-1 mb-1">
-                          <span className="text-3xl font-display font-bold text-white">RM 188</span>
-                        </div>
-                        <span className="text-[10px] text-gray-500">{trans.rates.perAdult}</span>
-                      </div>
+          {/* ─── HERO HEADER CARD ─── */}
+          <div className="bg-dark-900 rounded-3xl overflow-hidden shadow-2xl mb-8 relative">
+            {/* Decorative blobs */}
+            <div className="absolute -top-16 -right-16 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-brand-600/10 rounded-full blur-3xl pointer-events-none" />
 
-                      <div className="bg-white/5 border border-brand-500/30 rounded-xl p-6 text-center relative overflow-hidden hover:bg-white/10 transition-colors">
-                        <div className="absolute top-0 right-0 bg-brand-600 text-[9px] font-bold px-2 py-0.5 text-white">{trans.rates.peak}</div>
-                        <span className="block text-gray-400 text-[10px] uppercase tracking-wider mb-2 font-bold">{trans.rates.saturday}</span>
-                        <div className="flex justify-center items-baseline gap-1 mb-1">
-                          <span className="text-3xl font-display font-bold text-white">RM 198</span>
-                        </div>
-                        <span className="text-[10px] text-gray-500">{trans.rates.perAdult}</span>
-                      </div>
-                   </div>
-
-                   <div className="bg-brand-900/20 border border-brand-500/20 rounded-xl p-5 flex items-start gap-4">
-                       <div className="bg-brand-500/20 p-2 rounded-lg text-brand-500 shrink-0">
-                          <AlertCircle size={20} />
-                       </div>
-                       <div className="flex-grow">
-                           <h4 className="font-bold text-brand-400 text-xs uppercase mb-2 tracking-wide">{trans.rates.surchargeTitle}</h4>
-                           <div className="space-y-2">
-                              <div className="flex justify-between items-center text-xs border-b border-white/5 pb-1">
-                                <span className="text-gray-400">{trans.rates.friSun}</span>
-                                <span className="text-white font-bold font-mono">+ RM 10 <span className="text-gray-500 font-normal">/{trans.rates.perAdult}</span></span>
-                              </div>
-                              <div className="flex justify-between items-center text-xs">
-                                <span className="text-gray-400">{trans.rates.saturday}</span>
-                                <span className="text-white font-bold font-mono">+ RM 20 <span className="text-gray-500 font-normal">/{trans.rates.perAdult}</span></span>
-                              </div>
-                           </div>
-                       </div>
-                   </div>
+            <div className="relative z-10 grid lg:grid-cols-[1fr_auto] gap-0">
+              {/* Left: Title */}
+              <div className="p-8 md:p-12 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/10">
+                <span className="text-brand-500 font-bold uppercase tracking-[0.2em] text-xs mb-3 block">2D1N · Fri–Sat &amp; Sat–Sun</span>
+                <h3 className="font-display font-bold text-4xl md:text-5xl text-white leading-none mb-1 uppercase tracking-wide">WEEKEND</h3>
+                <h3 className="font-display font-bold text-4xl md:text-5xl text-white leading-none mb-1 uppercase tracking-wide">FULLBOARD</h3>
+                <p className="text-brand-400 font-display font-bold text-2xl italic mb-6">Package</p>
+                <div className="flex flex-wrap gap-3">
+                  {['Air-Con Tent','Hi-Tea','BBQ Dinner','Breakfast','Lunch','Fireshow','Campfire','Free Facilities'].map(tag => (
+                    <span key={tag} className="text-[10px] font-bold uppercase tracking-wider bg-white/5 text-gray-300 border border-white/10 px-3 py-1 rounded-full">{tag}</span>
+                  ))}
                 </div>
-
-                <div className="p-8 md:p-12 bg-gradient-to-br from-dark-900 to-dark-800 flex flex-col justify-center">
-                   <h4 className="font-display font-bold text-xl mb-8 flex items-center gap-3">
-                      <Utensils className="text-brand-500" /> {trans.rates.whatsIncluded}
-                   </h4>
-                   
-                   <div className="space-y-8 relative pl-6 border-l border-gray-700 ml-2 mb-8">
-                      <div className="relative group">
-                         <div className="absolute -left-[31px] bg-dark-900 w-4 h-4 rounded-full border-4 border-brand-500 group-hover:scale-125 transition-transform"></div>
-                         <h5 className="font-bold text-white text-sm mb-1">Hi-Tea Buffet</h5>
-                      </div>
-                      <div className="relative group">
-                         <div className="absolute -left-[31px] bg-dark-900 w-4 h-4 rounded-full border-4 border-brand-500 group-hover:scale-125 transition-transform"></div>
-                         <h5 className="font-bold text-white text-sm mb-1">BBQ Dinner Buffet</h5>
-                      </div>
-                      <div className="relative group">
-                         <div className="absolute -left-[31px] bg-dark-900 w-4 h-4 rounded-full border-4 border-brand-500 group-hover:scale-125 transition-transform"></div>
-                         <h5 className="font-bold text-white text-sm mb-1">Breakfast Buffet</h5>
-                      </div>
-                      <div className="relative group">
-                         <div className="absolute -left-[31px] bg-dark-900 w-4 h-4 rounded-full border-4 border-brand-500 group-hover:scale-125 transition-transform"></div>
-                         <h5 className="font-bold text-white text-sm mb-1">Lunch Buffet</h5>
-                      </div>
-                   </div>
-
-                   <button 
-                      onClick={() => setLightboxImage(URLS.menu)}
-                      className="w-full bg-white/5 hover:bg-white/10 border border-white/20 text-white rounded-xl p-4 flex items-center justify-between group transition-all"
-                    >
-                      <div className="flex items-center gap-3">
-                         <div className="bg-brand-500 p-2 rounded text-white"><FileText size={16}/></div>
-                         <div className="text-left">
-                           <span className="block font-bold text-sm">{trans.rates.viewMenu}</span>
-                           <span className="text-[10px] text-gray-400">{trans.rates.tapToView}</span>
-                         </div>
-                      </div>
-                      <ArrowRight size={16} className="text-gray-400 group-hover:text-brand-500 group-hover:translate-x-1 transition-all"/>
-                   </button>
-                </div>
-             </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
-             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
-                <h4 className="font-display font-bold text-dark-900 text-lg mb-2">{trans.features.tents.double.title}</h4>
-                <p className="text-gray-500 text-sm">{trans.rates.occupancy.double}</p>
-             </div>
-             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center border-b-4 border-b-brand-500">
-                <h4 className="font-display font-bold text-dark-900 text-lg mb-2">{trans.features.tents.quad.title}</h4>
-                <p className="text-gray-500 text-sm">{trans.rates.occupancy.quad}</p>
-             </div>
-             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
-                <h4 className="font-display font-bold text-dark-900 text-lg mb-2">{trans.features.tents.deluxe.title}</h4>
-                <p className="text-gray-500 text-sm">{trans.rates.occupancy.deluxe}</p>
-             </div>
-          </div>
-
-          <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center text-green-800 text-sm font-bold max-w-2xl mx-auto mb-8">
-             <Check size={16} className="inline mr-2"/> {trans.rates.noSurcharge}
-          </div>
-
-          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 max-w-4xl mx-auto mb-16">
-             <h4 className="font-display font-bold text-dark-900 mb-4 flex items-center gap-2"><AlertCircle size={20} className="text-brand-500"/> {trans.rates.policies.notes}</h4>
-             <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
-                <ul className="space-y-2">
-                   <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5"></div> {trans.rates.policies.sst}</li>
-                   <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5"></div> {trans.rates.policies.cpt}</li>
-                   <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5"></div> {trans.rates.policies.tourismTax}</li>
+              </div>
+              {/* Right: What's included detail */}
+              <div className="p-8 md:p-10 max-w-xs w-full">
+                <h4 className="font-display font-bold text-brand-500 text-xs uppercase tracking-widest mb-5 flex items-center gap-2">
+                  <Utensils size={14} /> What's Included
+                </h4>
+                <ul className="space-y-3 text-sm text-gray-300 mb-6">
+                  {[
+                    '2D1N Air-Conditioning Tent',
+                    '1× Hi Tea Buffet',
+                    '1× BBQ Dinner Buffet',
+                    '1× Breakfast Buffet',
+                    '1× Lunch Buffet',
+                    'Fireshow (Fri–Sat)',
+                    'Campfire',
+                    'Free access to all park facilities',
+                  ].map(item => (
+                    <li key={item} className="flex items-start gap-2">
+                      <Check size={14} className="text-brand-500 shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
-                <ul className="space-y-2">
-                   <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-1.5"></div> {trans.rates.policies.facilities}</li>
-                   <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-1.5"></div> {trans.rates.policies.deposit}</li>
-                </ul>
-             </div>
+                <button
+                  onClick={() => setLightboxImage(URLS.menu)}
+                  className="w-full bg-white/5 hover:bg-brand-600/20 border border-white/10 hover:border-brand-500/40 text-white rounded-xl p-3 flex items-center justify-between group transition-all"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="bg-brand-600 p-1.5 rounded text-white"><FileText size={14}/></div>
+                    <span className="font-bold text-xs">{trans.rates.viewMenu}</span>
+                  </div>
+                  <ArrowRight size={14} className="text-gray-400 group-hover:text-brand-500 group-hover:translate-x-1 transition-all"/>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* ─── PRICING TABLE ─── */}
+          <div className="bg-dark-900 rounded-3xl overflow-hidden shadow-2xl mb-6">
+            {/* Table header */}
+            <div className="grid grid-cols-[1fr_1fr_1fr] bg-dark-950 px-6 md:px-10 py-4 border-b border-white/10">
+              <div className="text-gray-500 text-xs uppercase tracking-widest font-bold">Tent Type</div>
+              <div className="text-center text-brand-400 text-xs uppercase tracking-widest font-bold">Adult</div>
+              <div className="text-center text-gray-400 text-xs uppercase tracking-widest font-bold">Kid <span className="text-gray-600 normal-case">6–12 yrs</span></div>
+            </div>
+
+            {/* Row: Double */}
+            <div className="grid grid-cols-[1fr_1fr_1fr] items-center px-6 md:px-10 py-6 border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+              <div>
+                <p className="font-display font-bold text-white text-lg uppercase">Double Tent</p>
+                <p className="text-gray-500 text-xs mt-0.5">2 Person</p>
+                <p className="text-gray-600 text-[10px]">(Min pax: 2 Adults)</p>
+              </div>
+              <div className="text-center">
+                <span className="text-gray-300 text-sm font-bold align-top leading-none mr-0.5">RM</span>
+                <span className="font-display font-bold text-brand-400 text-4xl md:text-5xl leading-none">228</span>
+                <span className="text-gray-500 text-xs block mt-1">/adult</span>
+              </div>
+              <div className="text-center">
+                <span className="text-gray-400 text-sm font-bold align-top leading-none mr-0.5">RM</span>
+                <span className="font-display font-bold text-white text-3xl md:text-4xl leading-none">118</span>
+                <span className="text-gray-500 text-xs block mt-1">/kid</span>
+              </div>
+            </div>
+
+            {/* Row: Quad (highlighted) */}
+            <div className="grid grid-cols-[1fr_1fr_1fr] items-center px-6 md:px-10 py-6 border-b border-white/5 bg-white/[0.04]">
+              <div>
+                <p className="font-display font-bold text-white text-lg uppercase">Quad Tent</p>
+                <p className="text-gray-500 text-xs mt-0.5">4 Person</p>
+                <p className="text-gray-600 text-[10px]">(Min pax: 3 Adults)</p>
+              </div>
+              <div className="text-center">
+                <span className="text-gray-300 text-sm font-bold align-top leading-none mr-0.5">RM</span>
+                <span className="font-display font-bold text-brand-400 text-4xl md:text-5xl leading-none">208</span>
+                <span className="text-gray-500 text-xs block mt-1">/adult</span>
+              </div>
+              <div className="text-center">
+                <span className="text-gray-400 text-sm font-bold align-top leading-none mr-0.5">RM</span>
+                <span className="font-display font-bold text-white text-3xl md:text-4xl leading-none">118</span>
+                <span className="text-gray-500 text-xs block mt-1">/kid</span>
+              </div>
+            </div>
+
+            {/* Row: Deluxe */}
+            <div className="grid grid-cols-[1fr_1fr_1fr] items-center px-6 md:px-10 py-6 hover:bg-white/[0.02] transition-colors">
+              <div>
+                <p className="font-display font-bold text-white text-lg uppercase">Deluxe Tent</p>
+                <p className="text-gray-500 text-xs mt-0.5">8 Person</p>
+                <p className="text-gray-600 text-[10px]">(Min pax: 6 Adults)</p>
+              </div>
+              <div className="text-center">
+                <span className="text-gray-300 text-sm font-bold align-top leading-none mr-0.5">RM</span>
+                <span className="font-display font-bold text-brand-400 text-4xl md:text-5xl leading-none">208</span>
+                <span className="text-gray-500 text-xs block mt-1">/adult</span>
+              </div>
+              <div className="text-center">
+                <span className="text-gray-400 text-sm font-bold align-top leading-none mr-0.5">RM</span>
+                <span className="font-display font-bold text-white text-3xl md:text-4xl leading-none">118</span>
+                <span className="text-gray-500 text-xs block mt-1">/kid</span>
+              </div>
+            </div>
+
+            {/* Bonus banner */}
+            <div className="bg-brand-600/10 border-t border-brand-500/20 px-6 md:px-10 py-4 flex items-center gap-3">
+              <div className="bg-brand-500 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0">BONUS</div>
+              <p className="text-brand-200 text-sm font-medium">
+                Add on any adventure activities and get <span className="text-brand-400 font-bold">RM 10,000 insurance coverage</span> for 2 Days 1 Night
+              </p>
+            </div>
+          </div>
+
+          {/* ─── FINE PRINT ─── */}
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 max-w-4xl mx-auto mb-10">
+            <h4 className="font-display font-bold text-dark-900 mb-4 flex items-center gap-2 text-sm"><AlertCircle size={16} className="text-brand-500"/> {trans.rates.policies.notes}</h4>
+            <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5 shrink-0"/>{trans.rates.policies.sst}</li>
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5 shrink-0"/>Local services charge (CPT) RM3/tent/night (collect upon check-in)</li>
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5 shrink-0"/>{trans.rates.policies.tourismTax}</li>
+              </ul>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-1.5 shrink-0"/>{trans.rates.policies.facilities}</li>
+                <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-1.5 shrink-0"/>{trans.rates.policies.deposit}</li>
+              </ul>
+            </div>
           </div>
         </div>
 

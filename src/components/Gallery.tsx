@@ -2,19 +2,20 @@ import React from 'react';
 import { AppSection } from '../types';
 import { Instagram, ExternalLink } from 'lucide-react';
 
+// All images served from Cloudinary CDN (auto WebP/AVIF, optimized quality)
 const galleryImages = [
-  "/images/gallery-1.jpg",
-  "/images/gallery-2.jpg",
-  "/images/gallery-3.jpg",
-  "/images/gallery-4.jpg",
-  "/images/gallery-5.jpg",
-  "/images/gallery-6.jpg",
-  "/images/gallery-7.jpg",
-  "/images/gallery-8.jpg",
-  "/images/gallery-9.jpg",
-  "/images/gallery-10.jpg",
-  "/images/gallery-11.jpg",
-  "/images/gallery-12.jpg"
+  "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/gallery-1_i46qs3.jpg",
+  "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/gallery-2_wygzf8.jpg",
+  "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/gallery-3_xbigv9.jpg",
+  "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/gallery-4_hbmrzp.jpg",
+  "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/gallery-5_oxnprr.jpg",
+  "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/gallery-6_lz8zqp.jpg",
+  "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/gallery-7_tjxwqz.jpg",
+  "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/gallery-8_f2jxqo.jpg",
+  "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/gallery-9_sbcicc.jpg",
+  "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/gallery-10_ndrv2y.jpg",
+  "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/gallery-11_e6zx9v.jpg",
+  "https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/gallery-12_uctlek.jpg",
 ];
 
 const Gallery: React.FC = () => {
@@ -37,9 +38,7 @@ const Gallery: React.FC = () => {
           <div className="h-1 w-20 bg-brand-500 mx-auto mt-6"></div>
         </div>
 
-        {/* Desktop: Columns (Masonry effect)
-          Mobile: Flex Row (Horizontal Slider) 
-        */}
+        {/* Desktop: Columns (Masonry effect) | Mobile: Flex Row (Horizontal Slider) */}
         <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:block md:columns-2 lg:columns-4 md:space-y-4 hide-scrollbar pb-6" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {galleryImages.map((src, idx) => (
             <div 
@@ -49,8 +48,9 @@ const Gallery: React.FC = () => {
             >
               <img 
                 src={src} 
-                alt={`Gopeng Glamping Park Instagram ${idx}`} 
+                alt={`Gopeng Glamping Park Instagram ${idx + 1}`} 
                 className="w-full h-[60vh] md:h-auto object-cover transform transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
                  <Instagram size={32} className="text-white opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all" />

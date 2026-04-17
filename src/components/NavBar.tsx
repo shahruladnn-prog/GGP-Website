@@ -56,7 +56,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
           >
             {!logoError ? (
               <img 
-                src="/images/logo.png" 
+                src="https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/logo_voz7sp.png" 
                 alt="Gopeng Glamping Park" 
                 className={`w-auto transition-all duration-300 ${scrolled ? 'h-16 md:h-20' : 'h-24 md:h-28'} group-hover:scale-105 drop-shadow-lg`}
                 onError={() => setLogoError(true)}

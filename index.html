@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- Primary Meta Tags -->
     <title>Gopeng Glamping Park | Official Website</title>
     <meta name="title" content="Gopeng Glamping Park | Official Website">
@@ -12,22 +12,40 @@
     <meta name="author" content="Gopeng Glamping Park">
     <link rel="canonical" href="https://www.gopengglampingpark.com/">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Theme Color (Mobile Browser Bar) -->
+    <meta name="theme-color" content="#ea580c">
+
+    <!-- Favicon using Cloudinary logo -->
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto,w_32/logo_voz7sp.png">
+    <link rel="apple-touch-icon" href="https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto,w_180/logo_voz7sp.png">
+
+    <!-- Open Graph / Facebook (Updated to Cloudinary) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.gopengglampingpark.com/">
     <meta property="og:title" content="Gopeng Glamping Park | Nature's Ultimate Escape">
     <meta property="og:description" content="Join us for an unforgettable adventure. Book your stay at Malaysia's premier glamping destination today.">
-    <meta property="og:image" content="https://gopengglampingpark.com/wp-content/uploads/2025/01/IMG_0005.jpg">
+    <meta property="og:image" content="https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto,w_1200/hero-bg_zbvzlr.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.gopengglampingpark.com/">
     <meta property="twitter:title" content="Gopeng Glamping Park | Official Website">
     <meta property="twitter:description" content="Experience the ultimate glamping adventure in Gopeng, Perak.">
-    <meta property="twitter:image" content="https://gopengglampingpark.com/wp-content/uploads/2025/01/IMG_0005.jpg">
+    <meta property="twitter:image" content="https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto,w_1200/hero-bg_zbvzlr.jpg">
 
+    <!-- Preconnect: establish connections early for CDNs -->
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <link rel="preconnect" href="https://www.youtube.com" crossorigin>
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload: hero background is the LCP element - load it first -->
+    <link rel="preload" as="image" href="https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto,w_1920/hero-bg_zbvzlr.jpg">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
+  </head>
   <body class="bg-gray-50 text-gray-800 antialiased">
     <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>

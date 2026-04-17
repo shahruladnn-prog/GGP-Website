@@ -25,9 +25,9 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
       capacity: '2 Pax',
       features: ['1 Queen Bed', 'Air Conditioning', 'Fan Cooling', 'Air Purifier', 'Plug Points', 'Table & Chairs'],
       images: [
-        '/images/tent-double-1.jpg',
-        '/images/tent-double-2.jpg',
-        '/images/tent-double-3.jpg'
+        'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/tent-double-1_lz0z7i.jpg',
+        'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/tent-double-2_ntxtme.jpg',
+        'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/tent-double-3_mgqpyf.jpg'
       ]
     },
     {
@@ -38,9 +38,9 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
       capacity: '4 Pax',
       features: ['2 Queen Beds', 'Air Conditioning', 'Fan Cooling', 'Air Purifier', 'Plug Points', 'Table & Chairs'],
       images: [
-        '/images/tent-quad-1.jpg',
-        '/images/tent-quad-2.jpg',
-        '/images/tent-quad-3.jpg'
+        'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/tent-quad-1_toimyj.jpg',
+        'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/tent-quad-2_sdeysn.jpg',
+        'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/tent-quad-3_ykknma.jpg'
       ]
     },
     {
@@ -51,9 +51,9 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
       capacity: '8 Pax',
       features: ['4 Queen Beds', 'Air Conditioning', 'Fan Cooling', 'Air Purifier', 'Plug Points', 'Large Common Area'],
       images: [
-        '/images/tent-deluxe-1.jpg',
-        '/images/tent-deluxe-2.jpg',
-        '/images/tent-deluxe-3.jpg'
+        'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/tent-deluxe-1_vyqzaq.jpg',
+        'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/tent-deluxe-2_yruh22.jpg',
+        'https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/tent-deluxe-3_vopqut.jpg'
       ]
     }
   ];
@@ -138,9 +138,10 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
            <div className="flex flex-col items-center group">
               <div className="h-32 w-full flex items-center justify-center mb-4 px-2">
                  <img 
-                    src="/images/award-iso21101.png" 
+                    src="https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/award-iso21101_jbtjvh.png" 
                     alt="ISO 21101" 
                     className="max-h-full max-w-[140px] object-contain transition-transform group-hover:scale-105 filter drop-shadow-sm"
+                    loading="lazy"
                  />
               </div>
               <div className="text-center px-2">
@@ -152,7 +153,7 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
            <div className="flex flex-col items-center group">
               <div className="h-32 w-full flex items-center justify-center mb-4 px-2">
                 <img 
-                    src="/images/award-iso9001.png" 
+                    src="https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/award-iso9001_jpnlcs.png" 
                     alt="ISO 9001" 
                     className="max-h-full max-w-[140px] object-contain transition-transform group-hover:scale-105 filter drop-shadow-sm"
                  />
@@ -166,7 +167,7 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
            <div className="flex flex-col items-center group">
               <div className="h-32 w-full flex items-center justify-center mb-4 px-2">
                  <img 
-                    src="/images/award-halal.png" 
+                    src="https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/award-halal_cqz2ae.png" 
                     alt="Halal" 
                     className="max-h-full max-w-[140px] object-contain transition-transform group-hover:scale-105 filter drop-shadow-sm"
                  />
@@ -180,7 +181,7 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
            <div className="flex flex-col items-center group">
               <div className="h-32 w-full flex items-center justify-center mb-4 px-2">
                  <img 
-                    src="/images/award-tourism.png" 
+                    src="https://res.cloudinary.com/djrhlrd6k/image/upload/q_auto/f_auto/award-tourism_imjmp1.png" 
                     alt="Perak Tourism Award" 
                     className="max-h-full max-w-[140px] object-contain transition-transform group-hover:scale-105 filter drop-shadow-sm"
                  />
@@ -227,6 +228,7 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
                       src={acc.images[activeImageIndices[acc.id]]} 
                       alt={acc.title} 
                       className="w-full h-full object-cover transition-opacity duration-500"
+                      loading="lazy"
                    />
 
                    {/* Zoom Hint Overlay */}
@@ -333,6 +335,7 @@ const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
                alt={currentLightboxAccommodation.title} 
                className="w-auto h-auto max-w-full max-h-full object-contain rounded-lg shadow-2xl"
                onClick={(e) => e.stopPropagation()}
+               loading="lazy"
              />
              
              {/* Navigation Overlay */}

@@ -60,7 +60,7 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="md:w-1/2 bg-dark-900 p-12 lg:p-16 text-white flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'url("https://www.transparenttextures.com/patterns/carbon-fibre.png")'}}></div>
+            <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 10px), repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 10px)'}}></div>
             
             <div className="relative z-10 h-full flex flex-col justify-center">
               <h3 className="font-display text-2xl font-bold mb-10 text-brand-500">{trans.contact.touch}</h3>

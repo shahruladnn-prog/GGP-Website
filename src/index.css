@@ -2,20 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.font-display {
-  font-family: 'Oswald', sans-serif;
-}
+/* Unified scrollbar hider — used as both .no-scrollbar and .hide-scrollbar in components */
+.no-scrollbar::-webkit-scrollbar,
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+.no-scrollbar,
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
+}

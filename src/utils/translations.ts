@@ -66,7 +66,7 @@ export const translations = {
       header: 'Transparent Pricing',
       title: 'CHOOSE YOUR EXPERIENCE',
       subtitle: 'We offer two distinct ways to experience Gopeng Glamping Park. Choose between our flexible Weekday Room Packages or our All-Inclusive Weekend Full Board Experience.',
-      weekdayBtn: 'Weekdays (Mon-Thu)',
+      weekdayBtn: 'Weekdays (Sun-Thu)',
       weekendBtn: 'Weekends (Fri-Sun)',
       weekdayLabel: 'Room Night Basis',
       weekdayDesc: 'Inclusive of Accommodation & Breakfast Buffet Only.',
@@ -147,7 +147,7 @@ export const translations = {
         d2n1: { title: '2 Days 1 Night', desc: 'Immersive overnight experience with glamping & meals.' },
         d3n2: { title: '3 Days 2 Nights', desc: 'The complete adventure experience for maximum impact.' },
         family: { title: 'Family Day', desc: 'Fun-filled activities suitable for all ages and families.' },
-        hrdf: { title: 'HRDF Certified', desc: 'Claimable training programs.' }
+        hrdc: { title: 'HRDC Claimable', desc: 'Government-certified training programs. Claim your training costs through HRDC.' }
       }
     },
     contact: {
@@ -243,7 +243,7 @@ export const translations = {
       header: 'Harga Telus & Jelas',
       title: 'PILIH PENGALAMAN ANDA',
       subtitle: 'Kami tawarkan dua cara menikmati Gopeng Glamping Park. Pilih Pakej Bilik (Hari Biasa) atau Pakej Penuh (Hujung Minggu).',
-      weekdayBtn: 'Hari Biasa (Isnin-Khamis)',
+      weekdayBtn: 'Hari Biasa (Ahad-Khamis)',
       weekendBtn: 'Hujung Minggu (Jumaat-Ahad)',
       weekdayLabel: 'Harga Ikut Bilik',
       weekdayDesc: 'Termasuk Penginapan & Sarapan Sahaja.',
@@ -324,7 +324,7 @@ export const translations = {
         d2n1: { title: '2 Hari 1 Malam', desc: 'Pengalaman bermalam yang imersif dengan glamping & makanan.' },
         d3n2: { title: '3 Hari 2 Malam', desc: 'Pengalaman pengembaraan lengkap untuk impak maksimum.' },
         family: { title: 'Hari Keluarga', desc: 'Aktiviti menyeronokkan sesuai untuk semua peringkat umur.' },
-        hrdf: { title: 'Pensijilan HRDF', desc: 'Program latihan boleh tuntut.' }
+        hrdc: { title: 'HRDC Boleh Tuntut', desc: 'Program latihan bertauliah kerajaan. Tuntut kos latihan anda melalui HRDC.' }
       }
     },
     contact: {
@@ -420,7 +420,7 @@ export const translations = {
       header: '价格公开透明',
       title: '选择您的体验方式',
       subtitle: '我们提供两种体验方式：选择灵活的“平日房间配套”或全包式的“周末全食宿体验”。',
-      weekdayBtn: '平日 (周一至周四)',
+      weekdayBtn: '平日 (周日至周四)',
       weekendBtn: '周末 (周五至周日)',
       weekdayLabel: '按房间计费',
       weekdayDesc: '仅包含住宿和自助早餐。',
@@ -501,7 +501,7 @@ export const translations = {
         d2n1: { title: '2天1夜', desc: '包含豪华露营和餐饮的沉浸式过夜体验。' },
         d3n2: { title: '3天2夜', desc: '为了最大影响力的完整探险体验。' },
         family: { title: '家庭日', desc: '适合所有年龄段和家庭成员的趣味活动。' },
-        hrdf: { title: 'HRDF 认证', desc: '可申请人力资源发展基金 (HRDF) 培训计划。' }
+        hrdc: { title: 'HRDC 可申请', desc: '政府认证培训计划，可通过 HRDC 报销培训费用。' }
       }
     },
     contact: {
