@@ -20,7 +20,6 @@ const Hero: React.FC<HeroProps> = ({ onExplore, onWatchVideo }) => {
           alt="Gopeng Glamping Park Atmosphere" 
           className="w-full h-full object-cover opacity-80 scale-105"
           style={{ animation: 'zoom 20s infinite alternate' }}
-          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/50"></div>
         <div className="absolute inset-0 bg-brand-900/10 mix-blend-overlay"></div>
